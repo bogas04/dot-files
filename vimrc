@@ -46,7 +46,6 @@ endf
 inoremap <expr> ( ConditionalPairMap('(', ')')
 inoremap <expr> { ConditionalPairMap('{', '}')
 inoremap <expr> [ ConditionalPairMap('[', ']')
-inoremap <expr> [ ConditionalPairMap('<', '>')
 
 " For backspace to work
 set backspace=indent,eol,start 
