@@ -44,12 +44,12 @@ function! ConditionalPairMap(open, close)
   endif
 endf
 
-inoremap <expr> ( ConditionalPairMap('(', ')')
+inoremap <expr> ( ConditionalPairMap('(', ');')
 inoremap <expr> { ConditionalPairMap('{', '}')
 inoremap <expr> [ ConditionalPairMap('[', ']')
 inoremap <expr> < ConditionalPairMap('<', '>')
-inoremap <expr> " ConditionalPairMap('"', '"')
-inoremap <expr> ' ConditionalPairMap("'","'")
+inoremap " ""<Left>
+inoremap ' ''<Left>
 
 " For backspace to work
 set backspace=indent,eol,start 
