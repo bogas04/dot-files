@@ -7,14 +7,17 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
-" main vundles
+" Main Vundles
 Bundle "scrooloose/nerdtree"
 Bundle "tpope/vim-surround"
-
-" experimental vundles
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
+Bundle "jiangmiao/auto-pairs"
+Bundle "scrooloose/nerdcommenter"
+
+" Experimental Vundles
+"Bundle "powerline/powerline"
+"Bundle "Valloric/YouCompleteMe"
 
 call vundle#end()         
 filetype plugin indent on  
@@ -32,24 +35,6 @@ set clipboard=unnamed
 
 " For syntax highlighting
 :syntax on
-
-" For autocomplete brackets
-function! ConditionalPairMap(open, close)
-  let line = getline('.')
-  let col = col('.')
-  if col < col('$') || stridx(line, a:close, col + 1) != -1
-    return a:open
-  else
-    return a:open . a:close . repeat("\<left>", len(a:close))
-  endif
-endf
-
-inoremap <expr> ( ConditionalPairMap('(', ');')
-inoremap <expr> { ConditionalPairMap('{', '}')
-inoremap <expr> [ ConditionalPairMap('[', ']')
-inoremap <expr> < ConditionalPairMap('<', '>')
-inoremap " ""<Left>
-inoremap ' ''<Left>
 
 " For backspace to work
 set backspace=indent,eol,start 
