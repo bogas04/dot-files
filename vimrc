@@ -1,4 +1,4 @@
-set nocompatible          
+set nocompatible "for viM  
 
 " For Vundles
 filetype off       
@@ -15,7 +15,7 @@ Bundle "jiangmiao/auto-pairs"
 Bundle "scrooloose/nerdcommenter"
 
 " Experimental Vundles
-"Bundle "powerline/powerline"
+Bundle "Lokaltog/vim-powerline"
 "Bundle "Valloric/YouCompleteMe"
 
 call vundle#end()         
@@ -24,11 +24,11 @@ filetype plugin indent on
 
 " Color scheme
 :colorscheme zellner 
+
 " For status line tweaks
+set encoding=utf-8
 set laststatus=2
-set statusline+=%t         "tail of the filename
-set statusline+=\ %y      "filetype
-set statusline+=\ (%l/%L)    "cursor line/total lines
+let g:Powerline_symbols = 'fancy'
 
 " For clipboard mapping
 set clipboard=unnamedplus
