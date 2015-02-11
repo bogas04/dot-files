@@ -1,4 +1,3 @@
-" For viM
 set nocompatible          
 
 " For Vundles
@@ -23,6 +22,8 @@ call vundle#end()
 filetype plugin indent on  
 " Vundles end
 
+" Color scheme
+:colorscheme zellner 
 " For status line tweaks
 set laststatus=2
 set statusline+=%t         "tail of the filename
