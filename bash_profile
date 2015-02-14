@@ -1,5 +1,5 @@
 # Terminal's prompt
-export PS1="\[\e[0;33m\]bogas04 \[\e[0;34m\][\w] \n\[\e[0;35m\]>\[\e[0;32m\]"
+export PS1="\[\e[0;34m\]bogas04 \[\e[2;34m\][\w] \n\[\e[0;31m\]>\[\e[0;32m\]"
 
 # Paths
 export PATH=$PATH:~/bin

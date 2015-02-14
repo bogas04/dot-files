@@ -9,13 +9,13 @@ Plugin 'gmarik/Vundle.vim'
 " Main Vundles
 Bundle "scrooloose/nerdtree"
 Bundle "tpope/vim-surround"
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
 Bundle "jiangmiao/auto-pairs"
-Bundle "scrooloose/nerdcommenter"
 Plugin 'bling/vim-airline'
 
 " Experimental Vundles
+"Bundle "MarcWeber/vim-addon-mw-utils"
+"Bundle "tomtom/tlib_vim"
+"Bundle "scrooloose/nerdcommenter"
 "Bundle "Valloric/YouCompleteMe"
 "Bundle "Lokaltog/vim-powerline"
 
@@ -25,10 +25,10 @@ filetype plugin indent on
 
 " For status line tweaks
 set encoding=utf-8
-let g:airline_powerline_fonts = 1
 set laststatus=2
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_b = '%{getcwd()}'
+let g:airline_section_b = ' '
 
 " For clipboard mapping
 set clipboard=unnamedplus
