@@ -1,18 +1,18 @@
 set nocompatible " For viM  
 
 " For Vundles
-filetype off       
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Main Vundles
-Bundle "scrooloose/nerdtree"
+Plugin 'bling/vim-airline'
 Bundle "tpope/vim-surround"
 Bundle "jiangmiao/auto-pairs"
-Plugin 'bling/vim-airline'
 
 " Experimental Vundles
+"Bundle "scrooloose/nerdtree"
 "Bundle "MarcWeber/vim-addon-mw-utils"
 "Bundle "tomtom/tlib_vim"
 "Bundle "scrooloose/nerdcommenter"
@@ -22,6 +22,18 @@ Plugin 'bling/vim-airline'
 call vundle#end()         
 filetype plugin indent on  
 " Vundles end
+
+" Mappings
+nmap † :tabnew<CR>
+nmap ø :tabnew 
+nmap ∑ :tabclose<CR>
+nmap ‘ gt<CR>
+nmap “ gT<CR>
+imap † <Esc>:tabnew<CR>
+imap ø <Esc>:tabnew 
+imap ∑ <Esc>:tabclose<CR>
+imap ‘ <Esc>gt<CR>
+imap “ <Esc>gT<CR>
 
 " For status line tweaks
 set encoding=utf-8
