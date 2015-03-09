@@ -10,30 +10,32 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bling/vim-airline'
 Bundle "tpope/vim-surround"
 Bundle "jiangmiao/auto-pairs"
+Bundle "wellsjo/wells-colorscheme.vim"
+Bundle "scrooloose/nerdcommenter"
 
 " Experimental Vundles
 "Bundle "scrooloose/nerdtree"
-"Bundle "MarcWeber/vim-addon-mw-utils"
-"Bundle "tomtom/tlib_vim"
-"Bundle "scrooloose/nerdcommenter"
 "Bundle "Valloric/YouCompleteMe"
-"Bundle "Lokaltog/vim-powerline"
 
 call vundle#end()         
 filetype plugin indent on  
 " Vundles end
 
-" Mappings
-nmap † :tabnew<CR>
-nmap ø :tabnew 
-nmap ∑ :tabclose<CR>
-nmap ‘ gt<CR>
-nmap “ gT<CR>
-imap † <Esc>:tabnew<CR>
-imap ø <Esc>:tabnew 
-imap ∑ <Esc>:tabclose<CR>
-imap ‘ <Esc>gt<CR>
-imap “ <Esc>gT<CR>
+" Mappings (OSX)
+  " New Tab
+  nmap † :tabnew<CR>
+  imap † <Esc>:tabnew<CR>
+  " Open in New Tab
+  nmap ø :tabnew 
+  imap ø <Esc>:tabnew 
+  " Close Tab
+  nmap ∑ :tabclose<CR>
+  imap ∑ <Esc>:tabclose<CR>
+  " Tab Switching
+  nmap ‘ gt<CR>
+  nmap “ gT<CR>
+  imap ‘ <Esc>gt<CR>
+  imap “ <Esc>gT<CR>
 
 " For status line tweaks
 set encoding=utf-8
@@ -46,9 +48,15 @@ let g:airline_section_b = ' '
 set clipboard=unnamedplus
 set clipboard=unnamed
 
-:syntax on  " For syntax highlighting
-set backspace=indent,eol,start " For backspace to work
-:colorscheme zellner " Color scheme
+" Syntax highlighting
+syntax on  
+" Colorscheme
+colorscheme wells-colors
+
+" Marker for changing
+set cpoptions+=$
+" For backspace to work
+set backspace=indent,eol,start
 
 " For fixing tabs to 2
 set tabstop=2
