@@ -42,7 +42,7 @@ set encoding=utf-8
 set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_section_b = ' '
+let g:airline_section_b = '%L'
 
 " For clipboard mapping
 set clipboard=unnamedplus
@@ -53,6 +53,8 @@ syntax on
 " Colorscheme
 colorscheme wells-colors
 
+" Virtual Edit
+set virtualedit=all
 " Marker for changing
 set cpoptions+=$
 " For backspace to work
