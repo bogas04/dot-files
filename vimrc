@@ -17,11 +17,17 @@ Bundle "scrooloose/nerdcommenter"
 "Bundle "scrooloose/nerdtree"
 "Bundle "Valloric/YouCompleteMe"
 
-call vundle#end()         
-filetype plugin indent on  
+call vundle#end()
+filetype plugin indent on
 " Vundles end
 
 " Mappings (OSX)
+" Leader
+let mapleader ="\<Space>"
+  " Indent
+  nmap <Leader>= gg=G
+  " Rupees
+  nmap <Leader>INR i₹ 
   " New Tab
   nmap † :tabnew<CR>
   imap † <Esc>:tabnew<CR>
@@ -48,13 +54,15 @@ let g:airline_section_b = '%L'
 set clipboard=unnamedplus
 set clipboard=unnamed
 
+" For carriage returns 
+set list
+set listchars=eol:¬
+
 " Syntax highlighting
-syntax on  
+syntax on
 " Colorscheme
 colorscheme wells-colors
 
-" Virtual Edit
-set virtualedit=all
 " Marker for changing
 set cpoptions+=$
 " For backspace to work
@@ -62,6 +70,6 @@ set backspace=indent,eol,start
 
 " For fixing tabs to 2
 set tabstop=2
-set shiftwidth=2   
-set softtabstop=2 
-set expandtab      
+set shiftwidth=2
+set softtabstop=2
+set expandtab

@@ -1,5 +1,10 @@
 # Terminal's prompt
 export PS1="\[\e[0;34m\]bogas04 \[\e[2;34m\][\w] \n\[\e[0;31m\]>\[\e[0;32m\]"
+# Colorful ls 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+# Colorful grep
+export GREP_OPTIONS='--color=auto'
 
 # Paths
 export PATH=$PATH:~/bin
