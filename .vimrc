@@ -8,12 +8,13 @@ Plugin 'gmarik/Vundle.vim'
 
 " Main Vundles
 Plugin 'bling/vim-airline'
-Bundle "tpope/vim-surround"
-Bundle "jiangmiao/auto-pairs"
-Bundle "wellsjo/wells-colorscheme.vim"
-Bundle "scrooloose/nerdcommenter"
+Bundle 'jiangmiao/auto-pairs'
+Bundle 'wellsjo/wellsokai.vim'
+Bundle 'scrooloose/nerdcommenter'
 
 " Experimental Vundles
+"Plugin 'mattn/emmet-vim'
+"Bundle "tpope/vim-surround"
 "Bundle "scrooloose/nerdtree"
 "Bundle "Valloric/YouCompleteMe"
 
@@ -28,20 +29,14 @@ let mapleader ="\<Space>"
   nmap <Leader>= gg=G
   " Rupees
   nmap <Leader>INR i₹ 
-  " New Tab
-  nmap † :tabnew<CR>
-  imap † <Esc>:tabnew<CR>
-  " Open in New Tab
+  " New Tab 
   nmap ø :tabnew 
-  imap ø <Esc>:tabnew 
-  " Close Tab
-  nmap ∑ :tabclose<CR>
-  imap ∑ <Esc>:tabclose<CR>
-  " Tab Switching
+  " Switch Tab
   nmap ‘ gt<CR>
-  nmap “ gT<CR>
   imap ‘ <Esc>gt<CR>
+  nmap “ gT<CR>
   imap “ <Esc>gT<CR>
+  "nmap <Leader>+ <c-y>,
 
 " For status line tweaks
 set encoding=utf-8
@@ -54,6 +49,9 @@ let g:airline_section_b = '%L'
 set clipboard=unnamedplus
 set clipboard=unnamed
 
+" For line numbers
+set number
+
 " For carriage returns 
 set list
 set listchars=eol:¬
@@ -61,7 +59,7 @@ set listchars=eol:¬
 " Syntax highlighting
 syntax on
 " Colorscheme
-colorscheme wells-colors
+colorscheme wellsokai
 
 " Marker for changing
 set cpoptions+=$
