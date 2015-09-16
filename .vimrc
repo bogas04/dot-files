@@ -43,8 +43,8 @@ set laststatus=2 " Status line tweaks
 set cpoptions+=$ " Marker for changing
 set listchars=eol:¬ " For showing carriage returns
 set encoding=utf-8 " Status line tweaks
-set clipboard=unnamed " For clipboard mapping
 set clipboard=unnamedplus " For clipboard mapping
+set clipboard=unnamed " For clipboard mapping
 set backspace=indent,eol,start " For backspace to work
 
 """"""""""""""""""""""""""""
