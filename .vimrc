@@ -32,10 +32,12 @@ filetype plugin indent on
 """"""""""""
 
 colorscheme wellsokai
+tab all
 syntax on " Syntax highlighting
 set list " For carriage returns 
 set number " For line numbers
 set expandtab " \t -> <spaces>
+set incsearch " For showing as we search
 set tabstop=2 " For fixing tabs to 2
 set shiftwidth=2 " For fixing tabs to 2
 set softtabstop=2 " For fixing tabs to 2
