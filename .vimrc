@@ -39,6 +39,8 @@ set number " For line numbers
 set expandtab " \t -> <spaces>
 set incsearch " For showing as we search
 set tabstop=2 " For fixing tabs to 2
+set cursorline " For highlighting cursor line
+set showmatch " Shows matching pair
 set shiftwidth=2 " For fixing tabs to 2
 set softtabstop=2 " For fixing tabs to 2
 set laststatus=2 " Status line tweaks
@@ -73,6 +75,8 @@ nmap <Leader>INR i₹
 nmap ø :tabnew 
 " Surround
 nmap <Leader>as ysiw
+" Turn off search highlight
+nmap <Leader><space> :nohlsearch<CR>
 " Switch Tab
 nmap ‘ gt<CR>
 imap ‘ <Esc>gt<CR>
