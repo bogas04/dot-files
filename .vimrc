@@ -10,17 +10,17 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Main Vundles
-Bundle 'mxw/vim-jsx'
 Plugin 'othree/yajs.vim'
 Plugin 'bling/vim-airline'
+Bundle 'tpope/vim-surround'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'wellsjo/wellsokai.vim'
 Plugin 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdcommenter'
 
 " Experimental Vundles
+"Bundle 'mxw/vim-jsx'
 "Plugin 'mattn/emmet-vim'
-"Bundle 'tpope/vim-surround'
 "Bundle 'scrooloose/nerdtree'
 "Bundle 'Valloric/YouCompleteMe'
 
@@ -71,6 +71,8 @@ nmap <Leader>= gg=G
 nmap <Leader>INR i₹ 
 " New Tab 
 nmap ø :tabnew 
+" Surround
+nmap <Leader>as ysiw
 " Switch Tab
 nmap ‘ gt<CR>
 imap ‘ <Esc>gt<CR>
