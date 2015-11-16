@@ -10,19 +10,19 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Main Vundles
-Plugin 'othree/yajs.vim'
 Plugin 'sjl/badwolf'
+Plugin 'othree/yajs.vim'
 Plugin 'bling/vim-airline'
 Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/nerdtree'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'wellsjo/wellsokai.vim'
 Plugin 'pangloss/vim-javascript'
 Bundle 'scrooloose/nerdcommenter'
 
 " Experimental Vundles
-"Bundle 'mxw/vim-jsx'
+Bundle 'mxw/vim-jsx'
 "Plugin 'mattn/emmet-vim'
-"Bundle 'scrooloose/nerdtree'
 "Bundle 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -32,8 +32,8 @@ filetype plugin indent on
 "  Tweaks  "
 """"""""""""
 
-"colorscheme wellsokai
-colorscheme badwolf
+colorscheme badwolf 
+"colorscheme wellsokai 
 tab all
 syntax on " Syntax highlighting
 set list " For carriage returns 
@@ -70,12 +70,14 @@ let g:jsx_ext_required = 0 " vim-jsx for .js
 " Leader
 let mapleader ="\<Space>"
 " Indent
-nmap <Leader>= gg=G
+nmap <Leader>= gg=G``<CR>
 " Rupees
 nmap <Leader>INR i₹ 
 " New Tab 
 nmap ø :tabnew 
-" Surround
+" NERDTree
+nmap <Leader>f :NERDTree<CR>
+" Add Surround 
 nmap <Leader>as ysiw
 " Turn off search highlight
 nmap <Leader><space> :nohlsearch<CR>
