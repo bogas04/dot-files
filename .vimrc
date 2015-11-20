@@ -1,39 +1,43 @@
 set nocompatible " For viM  
 
 """""""""""""
-"  Vundles  "
+"  Plugins  "
 """""""""""""
 
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/bundle')
 
-" Main Vundles
-Plugin 'sjl/badwolf'
-Plugin 'othree/yajs.vim'
-Plugin 'bling/vim-airline'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'wellsjo/wellsokai.vim'
-Plugin 'pangloss/vim-javascript'
-Bundle 'scrooloose/nerdcommenter'
+" Themes
+Plug 'wellsjo/wellsokai.vim'
+Plug 'bling/vim-airline'
 
-" Experimental Vundles
-Bundle 'mxw/vim-jsx'
-"Plugin 'mattn/emmet-vim'
-"Bundle 'Valloric/YouCompleteMe'
+" Plugins
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdcommenter'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
-call vundle#end()
+" Language Support
+Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
+
+" Snippets
+Plug 'justinj/vim-react-snippets'
+Plug 'mattn/emmet-vim'
+Plug 'honza/vim-snippets'
+
+call plug#end()
 filetype plugin indent on
 
 """"""""""""
 "  Tweaks  "
 """"""""""""
 
-colorscheme badwolf 
-"colorscheme wellsokai 
+"colorscheme badwolf 
+colorscheme wellsokai 
 tab all
 syntax on " Syntax highlighting
 set list " For carriage returns 
@@ -71,12 +75,14 @@ let g:jsx_ext_required = 0 " vim-jsx for .js
 let mapleader ="\<Space>"
 " Indent
 nmap <Leader>= gg=G``<CR>
+" Emmet
+nmap <Leader>m <C-y>
+" NERDTree
+nmap <Leader>t :NERDTreeToggle<CR>
 " Rupees
 nmap <Leader>INR i₹ 
 " New Tab 
 nmap ø :tabnew 
-" NERDTree
-nmap <Leader>f :NERDTree<CR>
 " Add Surround 
 nmap <Leader>as ysiw
 " Turn off search highlight

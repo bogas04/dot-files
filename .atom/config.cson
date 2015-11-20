@@ -1,0 +1,48 @@
+"*":
+  "exception-reporting":
+    userId: "4ec5d283-5bf5-bb30-a7ec-e2e7d7748a44"
+  welcome:
+    showOnStartup: false
+  core:
+    themes: [
+      "native-ui"
+      "one-dark-syntax"
+    ]
+    packagesWithKeymapsDisabled: [
+      "terminal-plus"
+      "auto-indent"
+    ]
+  editor:
+    invisibles: {}
+    tabType: "soft"
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+  "one-light-ui": {}
+  "vim-mode-plus": {}
+  "vim-surround": {}
+  "terminal-plus":
+    core:
+      workingDirectory: "Active File"
+    style:
+      theme: "homebrew"
+      fontFamily: "Meslo LG M for Powerline"
+      animationSpeed: 0
+    ansiColors:
+      normal: {}
+      zBright:
+        brightBlue:
+          red: 3
+          green: 45
+          blue: 230
+          alpha: 1
+        brightGreen:
+          red: 0
+          green: 213
+          blue: 1
+          alpha: 1
+    iconColors:
+      blue:
+        red: 4
+        green: 47
+        blue: 237
+        alpha: 1

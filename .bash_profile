@@ -17,11 +17,12 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 export PATH=$PATH:~/bin
 export PATH=$PATH:/usr/local/mongodb/bin
 export PATH=$PATH:/usr/local/bin/composer
+export PATH=$PATH:$HOME/.meteor
 
 
 #Aliases
 alias update='brew update && brew upgrade && brew cleanup && npm update -g'
-alias vim='nvim'
+#alias vim='nvim'
 
 # Clear and list 
 cls () { clear; ls $1; }
@@ -30,7 +31,7 @@ gpush () { git add .; git commit -m "$1"; git push $2 $3; }
 # Git reset hard. Follow it with git push -f to have better history on github
 greset () { git reset --hard HEAD~$1; }
 # Git create 
-gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}" }
+#gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}" }
 
 # pmc
 pmcd () { cd `pmc $1`; }
