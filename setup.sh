@@ -14,6 +14,7 @@ brew install git
 # Install brew cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
+brew cask install iterm2-beta
 
 # Install apps 
 brew cask install --appdir="/Applications" atom
