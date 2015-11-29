@@ -9,6 +9,7 @@ fi
 brew install macvim --with-override-system-vim
 brew install node
 brew install mysql 
+brew install mongodb
 brew install git
 
 # Install brew cask
@@ -23,6 +24,7 @@ brew cask install --appdir="/Applications" gitter
 brew cask install --appdir="/Applications" vlc
 brew cask install --appdir="/Applications" firefox-nightly
 brew cask install --appdir="/Applications" java
+brew cask install --appdir="/Applications" whatsdesktop
 brew cask install --appdir="/Applications" eclipse-ide
 
 # npm
