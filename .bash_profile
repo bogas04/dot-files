@@ -15,13 +15,10 @@ export ANDROID_HOME=/usr/local/opt/android-sdk
 
 # Paths
 export PATH=$PATH:~/bin
-export PATH=$PATH:/usr/local/mongodb/bin
-export PATH=$PATH:/usr/local/bin/composer
 export PATH=$PATH:$HOME/.meteor
 
-
 #Aliases
-alias update='brew update && brew upgrade && brew cleanup && npm update -g'
+alias update='brew update && brew upgrade && brew cask update && brew cleanup && brew cask cleanup && npm update -g'
 #alias vim='nvim'
 
 # Clear and list 
@@ -31,7 +28,17 @@ gpush () { git add .; git commit -m "$1"; git push $2 $3; }
 # Git reset hard. Follow it with git push -f to have better history on github
 greset () { git reset --hard HEAD~$1; }
 # Git create 
-#gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}" }
+gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}"; }
+# React component
+react-component () { 
+mkdir $1;
+touch "$1/$1.js";
+touch "$1/package.json";
+echo "{
+  \"name\": \"$1\",
+  \"main\":\"$1.js\"
+}" >> "$1/package.json";
+}
 
 # pmc
 pmcd () { cd `pmc $1`; }

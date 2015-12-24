@@ -8,7 +8,7 @@ call plug#begin('~/.vim/bundle')
 
 " Themes
 Plug 'wellsjo/wellsokai.vim'
-Plug 'bling/vim-airline'
+"Plug 'bling/vim-airline'
 
 " Plugins
 Plug 'scrooloose/nerdtree'
@@ -23,9 +23,9 @@ Plug 'garbas/vim-snipmate'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
+Plug 'wavded/vim-stylus'
 
 " Snippets
-Plug 'justinj/vim-react-snippets'
 Plug 'mattn/emmet-vim'
 Plug 'honza/vim-snippets'
 
@@ -41,6 +41,7 @@ colorscheme wellsokai
 tab all
 syntax on " Syntax highlighting
 set list " For carriage returns 
+set relativenumber " For relative numbers
 set number " For line numbers
 set expandtab " \t -> <spaces>
 set incsearch " For showing as we search
@@ -60,11 +61,15 @@ set backspace=indent,eol,start " For backspace to work
 """"""""""""""""""""""""""""
 "  Plugin Specific Tweaks  "
 """"""""""""""""""""""""""""
-
-let g:airline_section_b = '%L'
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
+set statusline=\ %f  " File address
+set statusline+=\ %y " File type
+set statusline+=%= " Shift to right side
+set statusline+=\Line:%l " Current line
+set statusline+=/  " Separator
+set statusline+=%L\  " Total lines
+"let g:airline_section_b = '%L'
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:jsx_ext_required = 0 " vim-jsx for .js
 
 """""""""""""""""""
