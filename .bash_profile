@@ -1,5 +1,6 @@
+source ~/.git-prompt.sh
 # Terminal's prompt
-export PS1="\[\e[2;34m\]\w \033[38;5;5m\D{%r}\n\[\e[0;31m\]>\[\e[0;32m\]"
+export PS1="\[\e[2;34m\]\w\e[0;33m\$(__git_ps1) \033[38;5;5m\D{%r}\n\[\e[0;31m\]>\[\e[0;32m\]"
 
 # Colorful ls 
 export CLICOLOR=1
@@ -30,16 +31,38 @@ greset () { git reset --hard HEAD~$1; }
 # Git create 
 gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}"; }
 # React component
-react-component () { 
-mkdir $1;
-touch "$1/$1.js";
-touch "$1/package.json";
-echo "{
-  \"name\": \"$1\",
-  \"main\":\"$1.js\"
-}" >> "$1/package.json";
+rc () { 
+  mkdir $1;
+  touch "$1/index.js";
+  echo "import React, { Component } from 'react';
+
+  export default class $1 extends Component {
+  constructor(props) {
+  super(props);
+
+}
+render() {
+  return (
+  <div>
+  </div>
+  );
+}
+}" >> "$1/index.js";
+}
+# React Stateless component
+rsc () { 
+  mkdir $1;
+  touch "$1/index.js";
+
+  echo "import React from 'react';
+
+  export default ({  }) => {
+  return (
+  <div>
+  </div>
+  );
+};" >> "$1/index.js";
 }
 
 # pmc
 pmcd () { cd `pmc $1`; }
-pmcs () { cd `pmc $1`; `pmc start $1`; }
