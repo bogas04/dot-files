@@ -20,6 +20,9 @@ export PATH=$PATH:$HOME/.meteor
 
 #Aliases
 alias update='brew update && brew upgrade && brew cask update && brew cleanup && brew cask cleanup && npm update -g'
+alias nr='npm run'
+alias ns='npm start'
+
 #alias vim='nvim'
 
 # Clear and list 
@@ -32,34 +35,33 @@ greset () { git reset --hard HEAD~$1; }
 gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\", \"description\": \"$3\"}"; }
 # React component
 rc () { 
-  mkdir $1;
-  touch "$1/index.js";
-  echo "import React, { Component } from 'react';
+mkdir $1;
+touch "$1/index.js";
+echo "import React, { Component } from 'react';
 
-  export default class $1 extends Component {
+export default class $1 extends Component {
   constructor(props) {
-  super(props);
-
-}
-render() {
-  return (
-  <div>
-  </div>
-  );
-}
+    super(props);
+  }
+  render() {
+    return (
+      <div className="\"$1\"">
+      </div>
+    );
+  }
 }" >> "$1/index.js";
 }
 # React Stateless component
 rsc () { 
-  mkdir $1;
-  touch "$1/index.js";
+mkdir $1;
+touch "$1/index.js";
 
-  echo "import React from 'react';
+echo "import React from 'react';
 
-  export default ({  }) => {
+export default ({  }) => {
   return (
-  <div>
-  </div>
+    <div className="\"$1\"">
+    </div>
   );
 };" >> "$1/index.js";
 }
