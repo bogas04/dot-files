@@ -15,9 +15,9 @@ brew install git
 # Install brew cask
 brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
-brew cask install iterm2-beta
 
 # Install apps 
+brew cask install iterm2
 brew cask install --appdir="/Applications" atom
 brew cask install --appdir="/Applications" skype 
 brew cask install --appdir="/Applications" gitter
@@ -26,6 +26,7 @@ brew cask install --appdir="/Applications" firefox-nightly
 brew cask install --appdir="/Applications" java
 brew cask install --appdir="/Applications" whatsdesktop
 brew cask install --appdir="/Applications" eclipse-ide
+brew cask install --appdir="/Applications" ccleaner
 
 # npm
 chown -R $USER /usr/local/

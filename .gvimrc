@@ -3,6 +3,7 @@ set nocompatible " For viM
 """""""""""""
 "  Plugins  "
 """""""""""""
+
 call plug#begin('~/.vim/bundle')
 
 " Themes
@@ -16,14 +17,13 @@ Plug 'garbas/vim-snipmate'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
-Plug 'jistr/vim-nerdtree-tabs'
 
 " Dependencies¬
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Language Support
-"Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
@@ -35,6 +35,7 @@ filetype plugin indent on
 """""""""""""""""
 "  Colorscheme  "
 """""""""""""""""
+
 set background=dark
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
@@ -44,12 +45,12 @@ syntax on " Syntax highlighting
 """"""""""""
 "  Tweaks  "
 """"""""""""
+
 tab all " convert tabs to spaces
 set list " For carriage returns 
+set relativenumber " For relative numbers
 set number " For line numbers
 set expandtab " \t -> <spaces>
-set tabpagemax=30 " limit of # of tabs
-set relativenumber " For relative numbers
 set incsearch " For showing as we search
 set mouse=a " For better mouse support
 set tabstop=2 " For fixing tabs to 2
@@ -67,6 +68,7 @@ set backspace=indent,eol,start " For backspace to work
 """"""""""""""""""
 "   Status Line  "
 """"""""""""""""""
+
 set statusline=\ %f  " File address
 set statusline+=\ %y " File type
 set statusline+=%= " Shift to right side
@@ -86,8 +88,8 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-"let g:syntastic_jsx_checkers = ['eslint']
-"let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_jsx_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 """""""""""""""""""
 "  Mappings (OSX) "
@@ -99,7 +101,7 @@ nmap <Leader>w :w<CR>
 " Quit 
 nmap <Leader>q :q<CR>
 " New Tab 
-nmap <Leader>o :tabnew 
+nmap ø :tabnew 
 " Rupees
 nmap <Leader>INR i₹
 " Indent
@@ -107,10 +109,10 @@ nmap <Leader>= gg=G``<CR>
 " Add Surround 
 nmap <Leader>as ysiw
 " NERDTree
-nmap <Leader>t :NERDTreeTabsToggle<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
 " Turn off search highlight
 nmap <Leader><space> :nohlsearch<CR>
 
 " Switch Tab
-nmap <Leader>[ gT<CR>
-nmap <Leader>] gt<CR>
+nmap <Leader>[ gt<CR>
+nmap <Leader>] gT<CR>
