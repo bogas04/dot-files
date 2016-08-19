@@ -1,7 +1,7 @@
 source ~/.git-prompt.sh
 
 # Terminal's prompt
-export PS1="\W\e[0;33m\$(__git_ps1) \[\e[0;32m\]"
+export PS1="\W\[\e[0;33m\]\$(__git_ps1) \[\e[0;32m\]"
 
 # Colorful ls 
 export CLICOLOR=1
@@ -77,3 +77,6 @@ rsc () {
   );
 };" >> "$1/index.js";
 }
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
