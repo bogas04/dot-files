@@ -7,6 +7,7 @@ call plug#begin('~/.vim/bundle')
 
 " Themes
 Plug 'w0ng/vim-hybrid'
+Plug 'jacoborus/tender'
 
 " Plugins
 Plug 'tpope/vim-surround'
@@ -24,10 +25,12 @@ Plug 'tomtom/tlib_vim'
 
 " Language Support
 "Plug 'leafgarland/typescript-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'othree/yajs.vim'
+Plug 'isRuslan/vim-es6'
 Plug 'mxw/vim-jsx'
 Plug 'wavded/vim-stylus'
+Plug 'gabrielelana/vim-markdown'
 
 call plug#end()
 filetype plugin indent on
@@ -36,9 +39,10 @@ filetype plugin indent on
 "  Colorscheme  "
 """""""""""""""""
 set background=dark
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-colorscheme hybrid
+"let g:hybrid_custom_term_colors = 1
+"let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
+"colorscheme hybrid
+colorscheme tender
 syntax on " Syntax highlighting
 
 """"""""""""
@@ -88,6 +92,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_jsx_checkers = ['eslint']
 "let g:syntastic_javascript_checkers = ['eslint']
+let g:markdown_enable_spell_checking = 0
 
 """""""""""""""""""
 "  Mappings (OSX) "
