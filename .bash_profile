@@ -1,7 +1,7 @@
 source ~/.git-prompt.sh
 
 # Terminal's prompt
-export PS1="\W\[\e[0;33m\]\$(__git_ps1) \[\e[0;32m\]"
+export PS1=" \W\[\e[0;33m\] `__git_ps1` \[\e[0;32m\]"
 
 # Colorful ls 
 export CLICOLOR=1
@@ -15,8 +15,9 @@ export EDITOR=vim
 export PATH=$PATH:~/bin
 
 # Aliases
-alias rm=trash
+alias rm='trash'
 alias gc='git clone'
+alias glog='git log --all --graph --decorate --oneline --simplify-by-decoration'
 alias bode='babel-node'
 alias ni='npm install'
 alias nis='npm install -S'
