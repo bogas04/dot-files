@@ -44,6 +44,7 @@ set background=dark
 "let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "colorscheme hybrid
 colorscheme tender
+"colorscheme koehler
 syntax on " Syntax highlighting
 
 """"""""""""
@@ -123,6 +124,8 @@ nmap <Leader>INR i₹
 nmap <Leader>= gg=G``<CR>
 " Add Surround 
 nmap <Leader>as ysiw
+" JsDoc
+nmap <Leader>jsd :JsDoc<CR>
 " NERDTree
 nmap <Leader>t :NERDTreeTabsToggle<CR>
 " Turn off search highlight
