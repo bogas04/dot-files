@@ -24,6 +24,7 @@ Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Language Support
+Plug 'heavenshell/vim-jsdoc'
 "Plug 'leafgarland/typescript-vim'
 "Plug 'pangloss/vim-javascript'
 "Plug 'othree/yajs.vim'
@@ -81,18 +82,29 @@ set statusline+=%L\  " Total lines
 """"""""""""""""""""""""""""
 "  Plugin Specific Tweaks  "
 """"""""""""""""""""""""""""
+" jsx
 let g:jsx_ext_required = 0 " vim-jsx for .js
 
+" statusline
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 "let g:syntastic_jsx_checkers = ['eslint']
 "let g:syntastic_javascript_checkers = ['eslint']
-let g:markdown_enable_spell_checking = 0
+
+" markdown
+let g:markdown_enable_spell_checking = 0 " disable spell check for markdown
+
+" vim-jsdoc
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_input_description = 1
+let g:jsdoc_allow_input_prompt = 1
 
 """""""""""""""""""
 "  Mappings (OSX) "
