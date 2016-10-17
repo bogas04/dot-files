@@ -6,11 +6,8 @@ if test ! $(which brew); then
 fi
 
 # Install brew tools
+brew install coreutils cscope  fzf  git  node  youtube-dl
 brew install macvim --with-override-system-vim
-brew install node
-brew install mysql 
-brew install mongodb
-brew install git
 
 # Install brew cask
 brew install caskroom/cask/brew-cask

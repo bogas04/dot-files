@@ -1,7 +1,7 @@
 source ~/.git-prompt.sh
 
 # Terminal's prompt
-export PS1=" \[\e[0;32m\]\W\[\e[0;33m\] \$(parse_git_branch)\e[0m"
+export PS1="\[\e[0;32m\] \W\[\e[0;33m\] \$(parse_git_branch)\[\e[0m\]"
 
 # Colorful ls 
 export CLICOLOR=1
