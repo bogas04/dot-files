@@ -142,4 +142,5 @@ nmap <Leader>j <c-w>j
 nmap <Leader>h <c-w>h
 
 " FZF
-nmap <Leader>p :FZF<CR>
+nmap <Leader>p :tabnew<CR>:FZF<CR>
+nmap <Leader>P :FZF<CR>
