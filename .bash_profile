@@ -26,6 +26,7 @@ alias ns='npm start'
 alias nr='npm run'
 
 pmcd () { cd `pmc $1`; }
+fim () { vim $(fzf); }
 update () {
   echo "⚡️ 🔥 💥  Updating brew";
   brew update;
