@@ -24,6 +24,7 @@ alias nid='npm install -D'
 alias nu='npm update'
 alias ns='npm start'
 alias nr='npm run'
+alias nb='npm run build'
 
 pmcd () { cd `pmc $1`; }
 fim () { vim $(fzf); }
@@ -48,3 +49,5 @@ gcreate () { curl -u $1 https://api.github.com/user/repos -d "{\"name\": \"$2\",
 glog () { git log --all --graph --decorate --oneline --simplify-by-decoration; }
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
