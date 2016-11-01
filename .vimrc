@@ -19,12 +19,14 @@ Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'wincent/ferret'
 
 " Dependencies¬
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Language Support
+Plug 'ap/vim-css-color'
 Plug 'heavenshell/vim-jsdoc'
 "Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
