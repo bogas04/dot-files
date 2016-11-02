@@ -6,35 +6,44 @@ set nocompatible " For viM
 call plug#begin('~/.vim/bundle')
 
 " Themes
-Plug 'w0ng/vim-hybrid'
-Plug 'jacoborus/tender'
+"Plug 'w0ng/vim-hybrid'
+"Plug 'jacoborus/tender'
+"Plug 'gosukiwi/vim-atom-dark'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Plugins
-Plug 'tpope/vim-surround'
-Plug 'honza/vim-snippets'
-Plug 'scrooloose/nerdtree'
-Plug 'garbas/vim-snipmate'
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+
+Plug 'honza/vim-snippets'
+Plug 'garbas/vim-snipmate'
 Plug 'scrooloose/syntastic'
+
+"Plug 'scrooloose/nerdtree'
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'jistr/vim-nerdtree-tabs'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'wincent/ferret'
+"Plug 'wincent/ferret'
 
 " Dependencies¬
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 
 " Language Support
+Plug 'gabrielelana/vim-markdown'
+
 Plug 'ap/vim-css-color'
+Plug 'wavded/vim-stylus'
+
 Plug 'heavenshell/vim-jsdoc'
-"Plug 'leafgarland/typescript-vim'
 Plug 'pangloss/vim-javascript'
-"Plug 'othree/yajs.vim'
 Plug 'isRuslan/vim-es6'
 Plug 'mxw/vim-jsx'
-Plug 'wavded/vim-stylus'
-Plug 'gabrielelana/vim-markdown'
+
+"Plug 'leafgarland/typescript-vim'
+"Plug 'othree/yajs.vim'
 
 call plug#end()
 
@@ -45,8 +54,10 @@ set background=dark
 "let g:hybrid_custom_term_colors = 1
 "let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
 "colorscheme hybrid
-colorscheme tender
+"colorscheme atom-dark
+"colorscheme tender
 "colorscheme koehler
+colorscheme deep-space
 syntax on " Syntax highlighting
 
 """"""""""""

@@ -25,20 +25,23 @@ alias nu='npm update'
 alias ns='npm start'
 alias nr='npm run'
 alias nb='npm run build'
+alias nt='npm test'
 
 pmcd () { cd `pmc $1`; }
 fim () { vim $(fzf); }
 update () {
-  echo "⚡️ 🔥 💥  Updating brew";
+  echo "Updating brew";
   brew update;
-  echo "⚡️ 🔥 💥  Upgrading brew"
+  echo "Upgrading brew"
   brew upgrade;
-  echo "⚡️ 🔥 💥  Upgrading b-cask"
+  echo "Upgrading brew cask"
   brew cask update;
-  echo "⚡️ 🔥 💥  Clean up"
+  echo "Brew Clean up"
   brew cleanup; brew cask cleanup;
-  echo "⚡️ 🔥 💥  NPM modules"
+  echo "Updating NPM modules"
   npm update -g;
+  echo "NPM Cleanup"
+  npm prune -g;
 }
 
 # GIT

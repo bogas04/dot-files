@@ -16,7 +16,7 @@ module.exports = {
     foregroundColor: '#fff',
 
     // terminal background color
-    backgroundColor: '#262626',
+    backgroundColor: '#1c1c1c',
 
     // border color (window, tabs)
     borderColor: '#333',
@@ -82,12 +82,12 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyperterm-snazzy',
     'hyperline',
     'hypercwd',
     'hyperterm-close-on-left',
     'hyperterm-tabs',
     'hyperterm-tab-icons',
+    'hyperterm-deep-space',
   ],
 
   // in development, you can create a directory under
