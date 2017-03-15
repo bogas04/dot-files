@@ -40,8 +40,6 @@ update () {
   brew cleanup; brew cask cleanup;
   echo "Updating NPM modules"
   npm update -g;
-  echo "NPM Cleanup"
-  npm prune -g;
 }
 
 # GIT

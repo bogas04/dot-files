@@ -6,26 +6,18 @@ set nocompatible " For viM
 call plug#begin('~/.vim/bundle')
 
 " Themes
-"Plug 'w0ng/vim-hybrid'
-"Plug 'jacoborus/tender'
-"Plug 'gosukiwi/vim-atom-dark'
 Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Plugins
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-Plug 'honza/vim-snippets'
-Plug 'garbas/vim-snipmate'
-Plug 'scrooloose/syntastic'
-
-"Plug 'scrooloose/nerdtree'
+Plug 'sindresorhus/vim-xo'
+Plug 'vim-syntastic/syntastic'
 
 Plug 'scrooloose/nerdcommenter'
-Plug 'jistr/vim-nerdtree-tabs'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'wincent/ferret'
 
 " Dependencies¬
 Plug 'MarcWeber/vim-addon-mw-utils'
@@ -33,17 +25,11 @@ Plug 'tomtom/tlib_vim'
 
 " Language Support
 Plug 'gabrielelana/vim-markdown'
-
 Plug 'ap/vim-css-color'
-Plug 'wavded/vim-stylus'
 
-Plug 'heavenshell/vim-jsdoc'
+"Plug 'heavenshell/vim-jsdoc'
 Plug 'pangloss/vim-javascript'
-Plug 'isRuslan/vim-es6'
 Plug 'mxw/vim-jsx'
-
-"Plug 'leafgarland/typescript-vim'
-"Plug 'othree/yajs.vim'
 
 call plug#end()
 
@@ -51,12 +37,6 @@ call plug#end()
 "  Colorscheme  "
 """""""""""""""""
 set background=dark
-"let g:hybrid_custom_term_colors = 1
-"let g:hybrid_reduced_contrast = 1 " Remove this line if using the default palette.
-"colorscheme hybrid
-"colorscheme atom-dark
-"colorscheme tender
-"colorscheme koehler
 colorscheme deep-space
 syntax on " Syntax highlighting
 
@@ -99,60 +79,54 @@ set statusline+=%L\  " Total lines
 " jsx
 let g:jsx_ext_required = 0 " vim-jsx for .js
 
-" statusline
+" syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-" syntastic
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_jsx_checkers = ['eslint']
-"let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_jsx_checkers = ['xo']
+let g:syntastic_javascript_checkers = ['xo']
 
 " markdown
 let g:markdown_enable_spell_checking = 0 " disable spell check for markdown
 
 " vim-jsdoc
-let g:jsdoc_enable_es6 = 1
-let g:jsdoc_input_description = 1
-let g:jsdoc_allow_input_prompt = 1
+"let g:jsdoc_enable_es6 = 1
+"let g:jsdoc_input_description = 1
+"let g:jsdoc_allow_input_prompt = 1
 
 """""""""""""""""""
 "  Mappings (OSX) "
 """""""""""""""""""
 " Leader
 let mapleader ="\<Space>"
+
 " Save
 nmap <Leader>w :w<CR>
+
 " Quit 
 nmap <Leader>q :q<CR>
+
 " New Tab 
 nmap <Leader>o :tabnew 
-" Rupees
-nmap <Leader>INR i₹
+
 " Indent
 nmap <Leader>= gg=G``<CR>
-" Add Surround 
-nmap <Leader>as ysiw
+
 " JsDoc
 nmap <Leader>jsd :JsDoc<CR>
-" NERDTree
-nmap <Leader>t :NERDTreeTabsToggle<CR>
+
 " Turn off search highlight
 nmap <Leader><space> :nohlsearch<CR>
 
 " Switch Tab
 nmap <Leader>[ gT<CR>
 nmap <Leader>] gt<CR>
-
-" Switch Window
-nmap <Leader>l <c-w>l
-nmap <Leader>k <c-w>k
-nmap <Leader>j <c-w>j
-nmap <Leader>h <c-w>h
 
 " FZF
 nmap <Leader>p :tabnew<CR>:FZF<CR>
