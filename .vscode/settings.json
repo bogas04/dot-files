@@ -1,0 +1,80 @@
+{
+        "editor.fontSize": 16,
+        "vim.leader": "<space>",
+        "vim.otherModesKeyBindingsNonRecursive": [
+                {
+                        "before": [
+                                "<leader>",
+                                "p"
+                        ],
+                        "after": [ ],
+                        "commands": [
+                                {
+                                        "command": "workbench.action.quickOpen",
+                                        "args": []
+                                }
+                        ]
+                },
+                {
+                        "before": [
+                                "<leader>",
+                                "["
+                        ],
+                        "after": [
+                                "g",
+                                "T"
+                        ]
+                },
+                {
+                        "before": [
+                                "<leader>",
+                                "]"
+                        ],
+                        "after": [
+                                "g",
+                                "t"
+                        ]
+                },
+                {
+                        "before": [
+                                "<leader>",
+                                "="
+                        ],
+                        "after": [
+                                "gg",
+                                "V",
+                                "G",
+                                "="
+                        ]
+                },
+                {
+                        "before": [
+                                "<leader>",
+                                "w"
+                        ],
+                        "after": [
+                                "<Esc>",
+                                ":w"
+                        ]
+                },
+                {
+                        "before": [
+                                "<leader>",
+                                "q"
+                        ],
+                        "after": [
+                                "<Esc>",
+                                ":q"
+                        ]
+                }
+        ],
+        "files.exclude": {
+                "**/.git": true,
+                "**/.svn": true,
+                "**/.hg": true,
+                "**/.DS_Store": true,
+                "**/MAIN/**": true
+        },
+        "window.zoomLevel": 0,
+        "editor.renderWhitespace": "none"
+}
