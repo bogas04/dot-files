@@ -34,10 +34,8 @@ update () {
   brew update;
   echo "Upgrading brew"
   brew upgrade;
-  echo "Upgrading brew cask"
-  brew cask update;
   echo "Brew Clean up"
-  brew cleanup; brew cask cleanup;
+  brew cleanup;
   echo "Updating NPM modules"
   npm update -g;
 }
