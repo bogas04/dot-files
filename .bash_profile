@@ -1,4 +1,6 @@
+# Git stuff
 source ~/.git-prompt.sh
+git config --global alias.lol "log --graph --decorate --pretty=oneline --abbrev-commit --all"
 
 # Terminal's prompt
 export PS1="\[\e[0;32m\] \W\[\e[0;33m\] \$(parse_git_branch)\[\e[0m\]"
@@ -20,15 +22,18 @@ alias gc='git clone'
 alias bode='babel-node'
 alias ni='npm install'
 alias nis='npm install -S'
+alias nig='npm install -g'
 alias nid='npm install -D'
 alias nu='npm update'
 alias ns='npm start'
 alias nr='npm run'
+alias nd='npm run dev'
 alias nb='npm run build'
 alias nt='npm test'
 
-pmcd () { cd `pmc $1`; }
+# Find and vim
 fim () { vim $(fzf); }
+
 update () {
   echo "Updating brew";
   brew update;
