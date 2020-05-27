@@ -5,42 +5,35 @@ set nocompatible " For viM
 """""""""""""
 call plug#begin('~/.vim/bundle')
 
-" Themes
-Plug 'tyrannicaltoucan/vim-deep-space'
-
 " Plugins
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
-Plug 'sindresorhus/vim-xo'
-Plug 'vim-syntastic/syntastic'
-
+" Code
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Dependencies¬
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-
 " Language Support
-Plug 'gabrielelana/vim-markdown'
 Plug 'ap/vim-css-color'
-
-"Plug 'heavenshell/vim-jsdoc'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
+Plug 'gabrielelana/vim-markdown'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
 """""""""""""""""
 "  Colorscheme  "
 """""""""""""""""
-
-set background=dark
 set termguicolors
-colorscheme deep-space
-syntax on " Syntax highlighting
+syntax enable " Syntax highlighting
+
+
+"""""""""""""""""
+"  File System  "
+"""""""""""""""""
+set path+=**
+set wildignore+=*/node_modules/*
+set wildignore+=*/dist/*
+filetype plugin on
 
 """"""""""""
 "  Tweaks  "
@@ -78,24 +71,6 @@ set statusline+=%L\  " Total lines
 """"""""""""""""""""""""""""
 "  Plugin Specific Tweaks  "
 """"""""""""""""""""""""""""
-" jsx
-let g:jsx_ext_required = 0 " vim-jsx for .js
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_signs=0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_w = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_jsx_checkers = ['xo']
-let g:syntastic_javascript_checkers = ['xo']
-
 " markdown
 let g:markdown_enable_spell_checking = 0 " disable spell check for markdown
 
@@ -122,16 +97,9 @@ nmap <Leader>o :tabnew
 " Indent
 nmap <Leader>= gg=G``<CR>
 
-" JsDoc
-nmap <Leader>jsd :JsDoc<CR>
-
 " Turn off search highlight
 nmap <Leader><space> :nohlsearch<CR>
 
 " Switch Tab
 nmap <Leader>[ gT<CR>
 nmap <Leader>] gt<CR>
-
-" FZF
-nmap <Leader>p :tabnew<CR>:FZF<CR>
-nmap <Leader>P :FZF<CR>

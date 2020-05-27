@@ -1,80 +1,40 @@
 {
-        "editor.fontSize": 16,
-        "vim.leader": "<space>",
-        "vim.otherModesKeyBindingsNonRecursive": [
-                {
-                        "before": [
-                                "<leader>",
-                                "p"
-                        ],
-                        "after": [ ],
-                        "commands": [
-                                {
-                                        "command": "workbench.action.quickOpen",
-                                        "args": []
-                                }
-                        ]
-                },
-                {
-                        "before": [
-                                "<leader>",
-                                "["
-                        ],
-                        "after": [
-                                "g",
-                                "T"
-                        ]
-                },
-                {
-                        "before": [
-                                "<leader>",
-                                "]"
-                        ],
-                        "after": [
-                                "g",
-                                "t"
-                        ]
-                },
-                {
-                        "before": [
-                                "<leader>",
-                                "="
-                        ],
-                        "after": [
-                                "gg",
-                                "V",
-                                "G",
-                                "="
-                        ]
-                },
-                {
-                        "before": [
-                                "<leader>",
-                                "w"
-                        ],
-                        "after": [
-                                "<Esc>",
-                                ":w"
-                        ]
-                },
-                {
-                        "before": [
-                                "<leader>",
-                                "q"
-                        ],
-                        "after": [
-                                "<Esc>",
-                                ":q"
-                        ]
-                }
-        ],
-        "files.exclude": {
-                "**/.git": true,
-                "**/.svn": true,
-                "**/.hg": true,
-                "**/.DS_Store": true,
-                "**/MAIN/**": true
-        },
-        "window.zoomLevel": 0,
-        "editor.renderWhitespace": "none"
+  "workbench.colorTheme": "GitHub Light",
+  "workbench.sideBar.location": "right",
+  "editor.minimap.enabled": false,
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "workbench.activityBar.visible": false,
+  "editor.fontSize": 22,
+  "terminal.integrated.fontSize": 18,
+  "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
+  "editor.fontFamily": "DankMono-Regular, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontFamily": "DankMono-Regular, Menlo, Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontWeightBold": "normal",
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "javascript.validate.enable": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 0,
+  "vim.useSystemClipboard": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontLigatures": true
 }
