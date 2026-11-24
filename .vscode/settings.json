@@ -1,5 +1,5 @@
 {
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Light Modern",
   "workbench.sideBar.location": "right",
   "editor.minimap.enabled": false,
   "editor.gotoLocation.multipleDeclarations": "goto",
@@ -11,7 +11,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": true,
-  "workbench.activityBar.visible": false,
   "editor.fontSize": 22,
   "terminal.integrated.fontSize": 18,
   "terminal.integrated.shell.osx": "/usr/local/bin/zsh",
@@ -36,5 +35,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "workbench.activityBar.location": "hidden"
 }
