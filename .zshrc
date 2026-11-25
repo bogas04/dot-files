@@ -1,124 +1,199 @@
-export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="robbyrussell"
-plugins=(
-  git
-  zsh-autosuggestions
-)
+autoload -Uz add-zsh-hook vcs_info
 
-source $ZSH/oh-my-zsh.sh
+zstyle ':vcs_info:git:*' formats ' (%F{red}%b%f)'
+zstyle ':vcs_info:*' enable git
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+update_prompt_vcs() {
+  vcs_info
+  PS1=" %F{green}%1~${vcs_info_msg_0_}%f "
+}
 
-alias vim='nvim'
-alias grep='rg'
-alias rm='trash' # I use trash-cli to prevent accidental `rm`s
-alias gpr='git pull --rebase'
+add-zsh-hook precmd update_prompt_vcs
+update_prompt_vcs
+
+# Common shortcuts
+alias ..='cd ..'
+alias gr='git rebase'
+alias ga='git add'
 alias gp='git push'
-alias gcb='git checkout -b'
-alias gprgp='git pull --rebase && git push'
+alias gpr='git pull origin --rebase'
+alias gprgp='git pull origin --rebase && git push'
 alias gs='git stash'
 alias gsp='git stash pop'
+alias gc='git commit'
 alias gcm='git commit -m'
-alias ga='git add'
-alias ni='npm install'
-alias nis='npm install -S'
-alias nig='npm install -g'
-alias nid='npm install -D'
-alias nu='npm update'
-alias ns='npm start'
-alias nr='npm run'
-alias nd='npm run dev'
-alias nb='npm run build'
-alias nt='npm test'
+alias gcb='git checkout -b'
 
-# alias node='bun'
-# alias ni='bun install'
-# alias nis='bun install -S'
-# alias nig='bun install -g'
-# alias nid='bun install -D'
-# alias nu='bun update'
-# alias ns='bun start'
-# alias nr='bun run'
-# alias nd='bun run dev'
-# alias nb='bun run build'
-# alias nt='bun test'
+alias ni='pnpm install'
+alias nis='pnpm install -S'
+alias nig='pnpm install -g'
+alias nid='pnpm install -D'
+alias nu='pnpm update'
+alias ns='pnpm start'
+alias nr='pnpm run'
+alias nd='pnpm run dev'
+alias nb='pnpm run build'
+alias nt='pnpm test'
 
-alias ui-screens='cd ~/Work/ui-screens'
-alias ui-core='cd ~/Work/ui-core'
-alias ui-components='cd ~/Work/ui-components'
-alias udaan-fe='cd ~/Work/udaan-fe'
-alias installapp='adb install /Users/divjot/Work/udaan-fe/app/android/app/build/outputs/apk/release/app-universal-release.apk'
-alias stopapp='adb shell am force-stop com.udaan.android.debug'
-alias restartapp='adb shell am force-stop com.udaan.android.debug && adb shell am start-activity -W -n com.udaan.android.debug/com.udaan.android.rn.MainActivity'
-alias startapp='adb shell am start-activity -W -n com.udaan.android.debug/com.udaan.android.rn.MainActivity'
-alias deeplink='adb shell am start -d'
-alias dts='git commit -m "#deploy-app-to-stage" --allow-empty'
-alias dwp='git commit -m "#deploy-web-to-prod" --allow-empty'
-alias uis='API_ENV=prod yarn dev-rspack'
-alias dall='gcm "#deploy-app-to-stage #deploy-web-to-prod" --allow-empty'
+# Move files to macOS Trash when using rm.
+rm() {
+  local -a paths unsupported_flags
+  local parsing_flags=true
+  local arg
 
+  for arg in "$@"; do
+    if $parsing_flags; then
+      case "$arg" in
+        --)
+          parsing_flags=false
+          continue
+          ;;
+        -h|--help)
+          cat <<'EOF'
+Usage: rm [OPTION]... FILE...
 
+Safe wrapper around macOS `trash`.
+Files are moved to Trash instead of being permanently deleted.
 
-tomp4() {
-    # Check if a filename is provided
-    if [ -z "$1" ]; then
-        echo "Usage: convert_to_mp4 <filename>"
-        return 1
+Notes:
+  - Common rm flags like -r, -f, -i, and -v are accepted but ignored.
+  - Use `command rm` if you really need the system rm.
+  - Use `--` before a path that starts with `-`.
+EOF
+          return 0
+          ;;
+        -[RrfiIv]*)
+          continue
+          ;;
+        -?*)
+          unsupported_flags+=("$arg")
+          continue
+          ;;
+      esac
     fi
 
-    # Get the input file name from the first parameter
-    local input_file="$1"
+    paths+=("$arg")
+  done
 
-    # Extract the base name without the extension
-    local base_name="${input_file%.*}"
+  if (( ${#paths[@]} == 0 )); then
+    echo "rm: missing operand" >&2
+    echo "Try 'rm --help' for more information." >&2
+    return 1
+  fi
 
-    # Construct the output file name
-    local output_file="${base_name}.mp4"
+  if (( ${#unsupported_flags[@]} > 0 )); then
+    echo "rm: unsupported flags ignored by trash wrapper: ${unsupported_flags[*]}" >&2
+  fi
 
-    # Run the ffmpeg command
-    ffmpeg -i "$input_file" "$output_file"
+  command trash "${paths[@]}"
 }
 
-onm() {
-    local input_path="$1"
-    local work_dir="/Users/divjot.singh/Work"
-    local udaan_dir="./node_modules/@udaan"
-    local dist_dir="dist"
-    local output_path
+# Compare two videos side by side and mark when each one finishes.
+comparemp4() {
+  local input1="$1"
+  local input2="$2"
+  local text1="${3:-Before}"
+  local text2="${4:-After}"
+  local output="comparison_output.mp4"
+  local done_hold="0.8"
 
-    # Remove the initial path until "Work"
-    output_path="${input_path#"$work_dir"}"
+  if [ -z "$input1" ] || [ -z "$input2" ]; then
+    echo "Usage: comparemp4 <input1.mov> <input2.mov> [text1] [text2]"
+    return 1
+  fi
 
-    # Replace "ui-screens/src" with "ui-screens/dist"
-    output_path="${output_path/src/$dist_dir}"
+  local duration1=$(ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$input1")
+  local duration2=$(ffprobe -v quiet -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$input2")
+  local total_duration=$(awk -v d1="$duration1" -v d2="$duration2" -v hold="$done_hold" 'BEGIN { max=(d1>d2?d1:d2); printf "%.3f", max+hold }')
 
-    # Change the extension from .tsx or .ts to .js
-    output_path="${output_path%.ts*}.js"
+  ffmpeg -i "$input1" -i "$input2" -filter_complex "
+  [0:v]pad=iw+40:ih+360:20:300:black,tpad=stop_mode=clone:stop_duration=${done_hold}[v0];
+  [1:v]pad=iw+40:ih+360:20:300:black,tpad=stop_mode=clone:stop_duration=${done_hold}[v1];
+  [v0][v1]hstack[temp];
+  [temp]drawtext=text='$text1':fontcolor=white:fontsize=40:x=(w/4-text_w/2):y=100,
+  drawtext=text='$text2':fontcolor=white:fontsize=40:x=(3*w/4-text_w/2):y=100,
+  drawtext=text='DONE! (${duration1}s)':fontcolor=red:fontsize=40:x=(w/4-text_w/2):y=170:enable='gte(t,$duration1)',
+  drawtext=text='DONE! (${duration2}s)':fontcolor=green:fontsize=40:x=(3*w/4-text_w/2):y=170:enable='gte(t,$duration2)'[v]
+  " -map "[v]" -map "0:a?" -t "$total_duration" "$output"
 
-    # Prepend the Udaan directory
-    output_path="$udaan_dir$output_path"
-
-    code "$output_path"
+  if [ $? -eq 0 ]; then
+    echo "Comparison video created: $output"
+  else
+    echo "Error creating comparison video"
+  fi
 }
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+# Convert a video to an MP4 beside the source file.
+tomp4() {
+  if [ -z "$1" ]; then
+    echo "Usage: tomp4 <filename>"
+    return 1
+  fi
 
-# pnpm
-export PNPM_HOME="/Users/divjot.singh/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+  local input_file="$1"
+  local output_file="${input_file%.*}.mp4"
+  ffmpeg -i "$input_file" "$output_file"
+}
 
-# bun completions
-[ -s "/Users/divjot.singh/.bun/_bun" ] && source "/Users/divjot.singh/.bun/_bun"
-
-# bun
+# Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+lazy_load_bun() {
+  unset -f bun
+  [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
+}
+
+bun() {
+  lazy_load_bun
+  bun "$@"
+}
+
+# Node through nvm
+export NVM_DIR="$HOME/.nvm"
+export NODE_BINARY="$HOME/.local/bin/node"
+
+lazy_load_nvm() {
+  unset -f nvm node npm npx yarn yarnpkg corepack
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+}
+
+nvm() {
+  lazy_load_nvm
+  nvm "$@"
+}
+
+node() {
+  lazy_load_nvm
+  node "$@"
+}
+
+npm() {
+  lazy_load_nvm
+  npm "$@"
+}
+
+npx() {
+  lazy_load_nvm
+  npx "$@"
+}
+
+yarn() {
+  lazy_load_nvm
+  yarn "$@"
+}
+
+yarnpkg() {
+  lazy_load_nvm
+  yarnpkg "$@"
+}
+
+corepack() {
+  lazy_load_nvm
+  corepack "$@"
+}
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.maestro/bin"
+eval "$(rbenv init - zsh)"

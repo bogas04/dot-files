@@ -1,0 +1,78 @@
+// Place your key bindings in this file to override the defaults
+[
+  { "key": "alt+f", "command": "editor.fold" },
+  { "key": "shift+cmd+d", "command": "workbench.view.scm" },
+  { "key": "ctrl+shift+g", "command": "workbench.view.debug" },
+  { "key": "cmd+shift+.", "command": "editor.action.marker.prevInFiles" },
+  { "key": "cmd+t", "command": "workbench.action.files.newUntitledFile" },
+  { "key": "cmd+r", "command": "workbench.action.openRecent" },
+  { "key": "cmd+shift+g", "command": "git.checkout" },
+  {
+    "key": "cmd+shift+e",
+    "command": "workbench.files.action.focusFilesExplorer"
+  },
+  { "key": "cmd+shift+b", "command": "workbench.view.testing.focus" },
+  {
+    "key": "cmd+shift+a",
+    "command": "workbench.view.extensions"
+  },
+  {
+    "key": "cmd+j",
+    "command": "workbench.action.togglePanel"
+  },
+  {
+    "key": "cmd+j",
+    "command": "-workbench.action.togglePanel"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "-workbench.action.terminal.toggleTerminal",
+    "when": "terminal.active"
+  },
+  {
+    "key": "alt+d",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "cmd+shift+.",
+    "command": "editor.action.goToImplementation",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "f12",
+    "command": "-editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
+  {
+    "key": "alt+s",
+    "command": "typescript.goToSourceDefinition"
+  },
+  {
+    "key": "shift+cmd+[",
+    "command": "workbench.action.showPreviousWindowTab"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "workbench.action.showNextWindowTab"
+  },
+  {
+    "key": "cmd+e",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-editor.action.marker.next",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+shift+i",
+    "command": "workbench.action.chat.toggle"
+  }
+]

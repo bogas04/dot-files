@@ -1,0 +1,106 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		},
+	},
+	{
+		"context": "Editor && vim_mode == insert",
+		"bindings": {
+			// "j k": "vim::NormalBefore"
+		},
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			"cmd-e": [
+				"editor::GoToDiagnostic",
+				{
+					"severity": { "min": "hint", "max": "error" },
+				},
+			],
+			"cmd-shift-e": [
+				"editor::GoToPreviousDiagnostic",
+				{
+					"severity": { "min": "hint", "max": "error" },
+				},
+			],
+		},
+	},
+
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-b": "workspace::ToggleRightDock",
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-shift-b": "workspace::ToggleLeftDock",
+		},
+	},
+	{
+		"bindings": {
+			"cmd-}": "window::ShowNextWindowTab",
+		},
+	},
+	{
+		"bindings": {
+			"cmd-{": "window::ShowPreviousWindowTab",
+		},
+	},
+	{
+		"bindings": {
+			"cmd-shift-i": [
+				"agent::NewExternalAgentThread",
+				{ "agent": { "custom": { "name": "codex-acp" } } },
+			],
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-j": "terminal_panel::Toggle",
+		},
+	},
+	{
+		"bindings": {
+			"cmd-shift-d": "git_panel::Toggle",
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-shift-e": "zed::Extensions",
+		},
+	},
+	{
+		"context": "ThreadSwitcher",
+		"unbind": {
+			"ctrl-shift-tab": [
+				"agents_sidebar::ToggleThreadSwitcher",
+				{
+					"select_last": true,
+				},
+			],
+		},
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-shift-g": "git::Branch",
+		},
+		"unbind": {
+			"ctrl-cmd-b": "git::Branch",
+		},
+	},
+]
